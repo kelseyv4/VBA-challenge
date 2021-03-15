@@ -45,11 +45,11 @@ For Each ws In Worksheets
         
         'get the opening price for the ticker
         If opening_price = 0 Then
-            opening_price = Cells(i, 3).Value
+            opening_price = ws.Cells(i, 3).Value
         End If
         
         'Add up the total stock volume values
-        total_stock_volume = total_stock_volume + Cells(i, 7).Value
+        total_stock_volume = total_stock_volume + ws.Cells(i, 7).Value
         
         'move to next tickers
         If ws.Cells(i + 1, 1).Value <> ticker Then
@@ -57,7 +57,7 @@ For Each ws In Worksheets
             ws.Cells(number_tickers + 1, 9) = ticker
             
             'get the closing price for ticker
-            closing_price = Cells(i, 6)
+            closing_price = ws.Cells(i, 6)
             
             'get yearly change value
             yearly_change = closing_price - opening_price
